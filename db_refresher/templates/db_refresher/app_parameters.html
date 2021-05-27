@@ -1,0 +1,615 @@
+{% extends "main_page/base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="remote_browser_modal" tabindex="-1" role="dialog"
+    aria-labelledby="remote_browser_modal_aria_lable" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Browse Folders in <span id="remote_browser_name">Some Value</span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col ">
+
+                            <form name="file_selector" method="get">
+                                <ul class="breadcrumb fixed-top position-sticky">
+                                    <li class="breadcrumb-item">
+                                        <button value="//10.81.1.107" class='directory_buttons btn btn-outline-primary'
+                                            onclick="document.getElementById('selected_field').value='//10.81.1.107';">
+                                            //10.81.1.107</button>
+                                    </li>
+                                </ul>
+                                <div class="form-group">
+                                    <div class="spinner-border text-info collapse"></div>
+                                    <label for="folder_selector">Select Folder</label>
+                                    <select class="custom-select" name="folder_selector" id="folder_selector" size="6">
+                                        <option value="//10.81.1.107/D$/Feb Release 2020/Execution Project/Artifacts"
+                                            class="option_class py-2" ondblclick="document.getElementById('selected_field').value='//10.81.1.107/D$/Feb Release 2020/Execution Project/Artifacts';
+                                this.form.submit()"><span class="glyphicon glyphicon-file "></span>Artifacts
+                                        </option>
+
+                                        <option value="//10.81.1.107/D$/Feb Release 2020/Execution Project/IAD_Feb_2020"
+                                            class="option_class py-2" ondblclick="document.getElementById('selected_field').value='//10.81.1.107/D$/Feb Release 2020/Execution Project/IAD_Feb_2020';
+                                this.form.submit()"> <span class="glyphicon glyphicon-file "></span>IAD_Feb_2020
+                                        </option>
+
+                                        <option value="//10.81.1.107/D$/Feb Release 2020/Execution Project/OP"
+                                            class="option_class py-2" ondblclick="document.getElementById('selected_field').value='//10.81.1.107/D$/Feb Release 2020/Execution Project/OP';
+                                this.form.submit()"> <span class="glyphicon glyphicon-file "></span>OP</option>
+
+                                        <option value="//10.81.1.107/D$/Feb Release 2020/Execution Project/Tools"
+                                            class="option_class py-2" ondblclick="document.getElementById('selected_field').value='//10.81.1.107/D$/Feb Release 2020/Execution Project/Tools';
+                                this.form.submit()"> <span class="glyphicon glyphicon-file "></span>Tools</option>
+
+                                    </select>
+                                </div>
+                                <input type="hidden" name="selected" id="selected_field" value="" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Select Selected</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-md-3 bg-dark flex-column ">
+            <nav class="nav py-5 navbar-dark justify-content-center nav-pills position-fixed flex-column">
+                <a href="#execution_machine" class="nav-link active text-white py-2 my-2" data-toggle="tab"> Execution
+                    Machine
+                    Parameters
+                </a>
+                <a href="#monitor_machine" class="nav-link text-white my-1" data-toggle="tab"> Monitor Machine
+                    Parameters</a>
+                <a href="#run_details" class="nav-link text-white my-1" data-toggle="tab"> Run Details </a>
+                <a href="#result_params" class="nav-link text-white my-1" data-toggle="tab"> Reporting Parameters </a>
+                <a href="#old_test_params" class="nav-link text-white my-1" data-toggle="tab"> Old Test Parameters </a>
+                <a href="#app_parameters" class="nav-link text-white my-1" data-toggle="tab"> App Server Parameters </a>
+                <a href="#db_parameters" class="nav-link text-white my-1" data-toggle="tab"> DB Server Parameters </a>
+                <a href="#db_fetched" class="nav-link text-white my-1" data-toggle="tab"> DB Fetched Values </a>
+                <a href="#SVN_details" class="nav-link text-white my-1" data-toggle="tab"> SVN Related Settings </a>
+            </nav>
+            <div style="height: 100vh;"></div>
+
+        </div>
+        <div class="col-md-8 py-4">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h1 class="text-center display-4">{{ APP }} : Parameters</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 offset-1 py-4 ">
+                <form method="POST" id="parameters_form" autocomplete="off"
+                    action="{% url 'main-page-app-parameters-submit' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="run_tool" value="{{ run_tool }}" />
+                    <input type="hidden" name="app_name" id='app_name' value="{{ APP }}" />
+                    <div class="tab-content py-4 ">
+                        <div class="tab-pane active" id="execution_machine">
+                            <div class="form-group">
+                                <label for="execution_ip">Execution IP</label>
+                                <input type="text" class="form-control border-info" name="execution_ip"
+                                    id="execution_ip" aria-describedby="helpId_4" placeholder="Execution IP"
+                                    value="{{ WINDOWS_IP }}">
+                                <small id="helpId_4" class="form-text text-muted">Neoload Execution Project
+                                    Hostname
+                                </small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exec_project_folder">NL Execution Project Folder</label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control border-info" name="exec_project_folder"
+                                        id="exec_project_folder" aria-describedby="helpId_5 button-addon2"
+                                        value="{{ EXECUTION_PROJECT_FOLDER }}"
+                                        placeholder="NL Execution Project Folder">
+                                    <a name="" id="button-addon2" class="btn btn-info" data-toggle="modal"
+                                        data-target="#remote_browser_modal" href="#" role="button">Browse</a>
+                                </div>
+                                <small id="helpId_5" class="form-text text-muted">Neoload Execution Folder Where
+                                    .nlp
+                                    file is
+                                    there</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exec_scenario">Execution Scenario </label>
+                                <select class="custom-select  border-info" name="exec_scenario" id="exec_scenario">
+                                    <option value="{{ EXECUTION_SCENARIO }}" selected> {{ EXECUTION_SCENARIO }}</option>
+                                    <option value="Load Run Scenario"> Load Test Scenario</option>
+                                    <option value="Dry Run Scenario">Dry Run Scenario</option>
+                                </select>
+                                <small id="helpId_6" class="form-text text-muted">Neoload Execution Project
+                                    Scenario</small>
+                            </div>
+                        </div>
+                        <div class="tab-pane " id="monitor_machine">
+
+                            <div class="form-group">
+                                <label for="monitor_ip">Monitor IP</label>
+                                <input type="text" list="monitor_list_data" class="form-control border-warning"
+                                    name="monitor_ip" id="monitor_ip" aria-describedby="helpId_1"
+                                    placeholder="Monitor IP">
+                                <small id="helpId_1" class="form-text text-muted">Neoload Monitor Project
+                                    Hostname</small>
+                                <datalist id="monitor_list_data">
+                                    {% for monitor in all_monitors %}
+                                    <option value="{{ monitor }}"> {{ monitor }} </option>
+                                    {% endfor %}
+                                </datalist>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="monitor_project_folder">NL Monitor Project Folder</label>
+                                <div class="input-group mb-3">
+                                    <input value="{{ MONITOR_PROJECT_LOCATION }}" type="text"
+                                        class="form-control  border-warning" name="monitor_project_folder"
+                                        id="monitor_project_folder" aria-describedby="helpId_2 button-addon2_1"
+                                        placeholder="NL Monitor Project Folder">
+                                    <a name="" id="button-addon2_1" class="btn btn-info" href="#" data-toggle="modal"
+                                        data-target="#remote_browser_modal" role="button">Browse</a>
+                                </div>
+                                <small id="helpId_2" class="form-text text-muted">Neoload Monitor Folder Where .nlp file
+                                    is
+                                    there</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="moni_test_scenarios">Monitor Scenario </label>
+                                <select class="custom-select border-warning" name="moni_test_scenarios"
+                                    id="moni_test_scenarios">
+                                    <option value="{{ MONITOR_SCENARIO }}" selected> {{ MONITOR_SCENARIO }}</option>
+                                    <option value="Load Test Scenario"> Load Run Scenario</option>
+                                    <option value="Dry Run Scenario">Dry Run Scenario</option>
+                                </select>
+                                <small id="helpId_3" class="form-text text-muted">Neoload Execution Project
+                                    Scenario</small>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="run_details">
+                            <div class="form-group">
+                                <label for="">Run Number</label>
+                                <div class="input-group mb-3">
+                                    <input value="{{ TEST_RUN_NO }}" type="text" class="form-control border-info"
+                                        name="run" id="run" aria-describedby="helpId_7" readonly="readonly">
+                                    <div class="input-group-append">
+                                        <div class="spinner-border text-primary" id="spinner" style="display: none;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <small id="helpId_7" class="form-text text-muted">Run Number for Current App</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Run Description</label>
+                                <input value="{{ TEST_DESCRIPTION }}" type="text" class="form-control border-info"
+                                    name="run_description" id="run_description" aria-describedby="helpId_8">
+                                <small id="helpId_8" class="form-text text-muted">Run description for Run</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="release_list">Release Name</label>
+                                <input value="{{ RELEASE_NAME }}" type="text" list="release_list_data"
+                                    class="form-control" name="release_list" id="release_list"
+                                    aria-describedby="helpId_9" placeholder="Release Name">
+                                <small id="helpId_9" class="form-text text-muted">Please select Old Release Name to
+                                    Compare
+                                    the
+                                    Results</small>
+                                <datalist id="release_list_data">
+
+                                    release List {{ release_list }}
+                                    {% for release_name in release_list %}
+                                    <option>{{ release_name }}</option>
+                                    {% endfor %}
+                                </datalist>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Test Type </label>
+                                <select class="custom-select border-info " name="test_type" id="test_type">
+                                    {% for test_type in test_types %}
+                                    <option value="{{ test_type }}"> {{ test_type }} </option>
+                                    {% endfor %}
+                                </select>
+                                <small id="helpId_10" class="form-text text-muted">Release name for the Run</small>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="app_parameters">
+                            <div class="form-group">
+                                <label for="">App IP</label>
+                                <input value="{{ APP_IP }}" type="text" class="form-control border-info" name="app_ip"
+                                    id="app_ip" aria-describedby="helpId11">
+                                <small id="helpId11" class="form-text text-muted">App Host name for PLab Server</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">SystemI Path</label>
+                                <input value="{{ SYSTEMI_PATH }}" type="text" class="form-control border-info"
+                                    name="SystemI_Path" id="SystemI_Path" aria-describedby="helpId13">
+                                <small id="helpId13" class="form-text text-muted">Systemi Folder Path for Plab App
+                                    Server</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Oracle Password: App</label>
+                                <input value="{{ APP_ORACLE_PWD }}" type="text" class="form-control border-info"
+                                    name="App_Oracle_PWD" id="App_Oracle_PWD" aria-describedby="helpId17">
+                                <small id="helpId17" class="form-text text-muted">Oracle Password for Plab App
+                                    Server</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Root Password: App</label>
+                                <input value="{{ APP_ROOT_PWD }}" type="text" class="form-control border-info"
+                                    name="App_Root_PWD" id="App_Root_PWD" aria-describedby="helpId18">
+                                <small id="helpId18" class="form-text text-muted">Root Password for Plab App
+                                    Server</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="thread_dump_location">Thread Dump Location</label>
+                                <input value="{{ THREAD_DUMP_LOCATION }}" type="text" class="form-control"
+                                    name="thread_dump_location" id="thread_dump_location" aria-describedby="helpId53"
+                                    placeholder="Please enter the threaddump Location">
+                                <small id="helpId53" class="form-text text-muted">Thread Dump Location to collect the
+                                    thread
+                                    dump on the app server</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="heap_dump_location">Heap Dump Location</label>
+                                <input value="{{ HEAP_DUMP_LOCATION }}" type=" text" class="form-control"
+                                    name="heap_dump_location" id="heap_dump_location" aria-describedby="helpId54"
+                                    placeholder="heap_dump_location">
+                                <small id="helpId54" class="form-text text-muted">Please select the Heap Dump Location
+                                </small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="jdk_path">JDK Path</label>
+                                <input value="{{ JDK_PATH }}" type="text" class="form-control" name="jdk_path"
+                                    id="jdk_path" aria-describedby="helpId55"
+                                    placeholder="Enter JDK Path in app server">
+                                <small id="helpId55" class="form-text text-muted">JDK installation Path in App server
+                                    for thread dump</small>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane" id="db_parameters">
+                            <div class="form-group">
+                                <label for="">DB IP</label>
+                                <input value="{{ DB_IP }}" type="text" class="form-control border-info" name="db_ip"
+                                    id="db_ip" aria-describedby="helpId12">
+                                <small id="helpId12" class="form-text text-muted">DB Host name for PLab Server</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">DB Home Path</label>
+                                <input value="{{ DB_HOME }}" type="text" class="form-control border-warning"
+                                    name="db_home" id="db_home" aria-describedby="helpId14">
+                                <small id="helpId14" class="form-text text-muted">DB Home Folder Path for Plab DB
+                                    Server</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Schema Name</label>
+                                <input value="{{ SCHEMA_NAME }}" type="text" class="form-control border-warning"
+                                    name="schema_name" id="schema_name" aria-describedby="helpId15">
+                                <small id="helpId15" class="form-text text-muted">Schema Name for Plab DB Server</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Schema Password</label>
+                                <input value="{{ SCHEMA_PWD }}" type="text" class="form-control border-warning"
+                                    name="schema_pwd" id="schema_pwd" aria-describedby="helpId16">
+                                <small id="helpId16" class="form-text text-muted">Schema Password for Plab DB
+                                    Server</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Oracle Password: DB</label>
+                                <input value="{{ DB_ORACLE_PWD }}" type="text" class="form-control border-info"
+                                    name="DB_Oracle_PWD" id="DB_Oracle_PWD" aria-describedby="helpId19">
+                                <small id="helpId19" class="form-text text-muted">Oracle Password for Plab DB
+                                    Server</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Root Password: DB</label>
+                                <input value="{{ DB_ROOT_PWD }}" type="text" class="form-control border-info"
+                                    name="DB_Root_PWD" id="DB_Root_PWD" aria-describedby="helpId20">
+                                <small id="helpId20" class="form-text text-muted">Root Password for Plab DB
+                                    Server</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="oracle_db_port">DB Port</label>
+                                <input value="{{ ORACLE_DB_PORT }}" type="text" class="form-control"
+                                    name="oracle_db_port" id="oracle_db_port" aria-describedby="helpId51"
+                                    placeholder="Please enter the DB Port">
+                                <small id="helpId51" class="form-text text-muted">Port to connect to APP DB</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="oracle_db_id">Oracle DB Id: SID</label>
+                                <input value="{{  ORACLE_DB_ID  }}" type="text" class="form-control" name="oracle_db_id"
+                                    id="oracle_db_id" aria-describedby="helpID52" placeholder="Please Enter DB SID">
+                                <small id="helpID52" class="form-text text-muted">Please Enter the DB SID</small>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane" id="db_fetched">
+
+                            <div class="form-group">
+                                <label for="installers_to_avoid">The installers you don't Want in Installer Versions
+                                    Table</label>
+                                <input value="{{ INSTALLERS_TO_AVOID }}" type="text" class="form-control"
+                                    name="installers_to_avoid" id="installers_to_avoid" aria-describedby="helpId55"
+                                    placeholder="Installers that you want to avoid">
+                                <small id="helpId55" class="form-text text-muted">Put Comma seperated installer names to
+                                    avoid them</small>
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane" id="SVN_details">
+                            <div class="form-group">
+                                <label for="">SVN Artifacts Folder</label>
+                                <input value="{{ SVN_ARTIFACT_FOLDER }}" type="text" class="form-control border-info"
+                                    name="svn_artifact_folder" id="svn_artifact_folder" aria-describedby="helpId22">
+                                <small id="helpId22" class="form-text text-muted">SVN Location To upload
+                                    Aritfacts</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">SVN OP Location</label>
+                                <input value="{{ SVN_OP_LOCATION }}" type="text" class="form-control border-info"
+                                    name="svn_op_location" id="svn_op_location" aria-describedby="helpId21">
+                                <small id="helpId21" class="form-text text-muted">Operation Profile SVN Location to
+                                    collect
+                                    as
+                                    Artifact</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">SVN Username</label>
+                                <input value="{{ SVN_USER_NAME }}" type="text" class="form-control border-info"
+                                    name="svn_user_name" id="svn_user_name" aria-describedby="helpId23">
+                                <small id="helpId23" class="form-text text-muted">SVN username to connect to SVN</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="">SVN Password</label>
+                                <input value="{{ SVN_PASSWORD }}" type="text" class="form-control border-info"
+                                    name="svn_password" id="svn_password" aria-describedby="helpId24">
+                                <small id="helpId24" class="form-text text-muted">SVN password to connect to SVN</small>
+                            </div>
+
+                        </div>
+                        <div class="tab-pane" id="result_params">
+                            <div class="form-group ">
+                                <label for="total_users">Total Users In 100% Load</label>
+                                <input value="{{ TOTAL_USERS }}" type="text" class="form-control border-info"
+                                    oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="total_users"
+                                    id="total_users" aria-describedby="helpId25" placeholder="Total Users">
+                                <small id="helpId25" class="form-text text-muted">Total number of users in 100% load to
+                                    calculate load percentage</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="change_history">Change History Link</label>
+                                <input value="{{ CHANGE_HISTORY }}" type="text" class="form-control border-info"
+                                    name="change_history" id="change_history" aria-describedby="helpId26"
+                                    placeholder="Change History Link">
+                                <small id="helpId26" class="form-text text-muted">Confluence page change history link
+                                    for
+                                    the
+                                    App</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="changes_made">Changes Made</label>
+                                <textarea class="form-control border-info" aria-describedby="helpId27"
+                                    name="changes_made" id="changes_made" rows="3">{{ CHANGES_MADE }}</textarea>
+                                <small id="helpId27" class="form-text text-muted">New Line Separated Changes
+                                    Made</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tes_scope">Test Scope</label>
+                                <textarea class="form-control border-info" aria-describedby="helpId28" name="tes_scope"
+                                    id="tes_scope" rows="3">{{ TEST_SCOPE }}</textarea>
+                                <small id="helpId28" class="form-text text-muted">New Line Separated Changes
+                                    Made</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="to_mail_file">Mail Recipients</label>
+                                <textarea class="form-control border-info" aria-describedby="helpId29"
+                                    name="to_mail_file" id="to_mail_file" rows="3">{{ TO_MAIL_FILE }}</textarea>
+                                <small id="helpId29" class="form-text text-muted">New Line Separated Recievers</small>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="old_test_params">
+
+                            <div class="custom-control custom-checkbox py-3">
+                                <input type="checkbox" onclick="" class="custom-control-input" name="compare_with_old"
+                                    id="compare_with_old" value="1" {% if COMPARE_WITH_OLD %} checked="checked"
+                                    {% endif %} />
+                                <label class="custom-control-label" for="compare_with_old">Compare with old
+                                    Results</label>
+                            </div>
+                            <fieldset id="old_res_group" class="" {% if not COMPARE_WITH_OLD %} disabled="disabled"
+                                {% endif %}>
+                                <div class="form-group">
+                                    <label for="old_release_list">Old Release Name</label>
+                                    <input type="text" list="old_release_list_data" class="form-control"
+                                        name="old_release_list" id="old_release_list" aria-describedby="helpId30"
+                                        placeholder="Old Release Name" value="{{ OLD_RELEASE_NAME }}">
+                                    <small id="helpId30" class="form-text text-muted">Please select Old Release Name to
+                                        Compare
+                                        the
+                                        Results</small>
+                                    <datalist id="old_release_list_data">
+                                        {% for release_name in old_release_list %}
+                                        <option>{{ release_name }}</option>
+                                        {% endfor %}
+                                    </datalist>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="old_test_type">Old Test Type </label>
+                                    <select class="custom-select border-info " name="old_test_type" id="old_test_type">
+                                        <option value="{{ OLD_TEST_TYPE }}">{{ OLD_TEST_TYPE }}</option>
+                                        {% for test_type in test_types %}
+                                        <option value="{{ test_type }}"> {{ test_type }} </option>
+                                        {% endfor %}
+
+                                    </select>
+                                    <small id="helpId31" class="form-text text-muted">Old Test Type to Compare the
+                                        Results</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="old_run">Old Run No</label>
+                                    <div class="input-group mb-3">
+                                        <input oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+                                            value="{{ OLD_RUN }}" type="text" class="form-control" name="old_run"
+                                            id="old_run" aria-describedby="helpId" placeholder="Old Run No">
+                                        <div class="input-group-append">
+                                            <div class="spinner-border text-primary" id="spinner_old"
+                                                style="display: none;"></div>
+                                        </div>
+                                    </div>
+                                    <small id="helpId" class="form-text text-muted">Please select Old Run Number to
+                                        compare
+                                        the
+                                        results</small>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row fixed-bottom ">
+            <div class="col-md-6 offset-3 text-center">
+                <div class="col-md-6 offset-3 py-2 rounded-pill text-center bg-white">
+                    <button type="submit" onclick='document.getElementById("parameters_form").submit();'
+                        class="btn  btn-outline-dark ">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $('#compare_with_old').change(function () {
+            if ($(this).is(":checked")) {
+                $('#old_res_group').prop("disabled", false);
+                $('#old_res_group *').css('cursor', 'default');
+            } else {
+
+                $('#old_res_group').prop("disabled", true);
+                $('#old_res_group *').css('cursor', 'not-allowed');
+            }
+        });
+
+        $('#release_list, #test_type').change(function () {
+
+            var release_name = $('#release_list').val()
+            var test_type = $('#test_type').val()
+            var app = $('#app_name').val()
+            var data = {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                release_name: release_name,
+                test_type: test_type,
+                app_name: app
+            };
+
+            $.ajax({
+                url: "{% url 'test-report-automation-max-run' %}",
+                async: true,
+                data: data,
+                method: 'post',
+                beforeSend: function () {
+                    $("#spinner").show();
+                },
+                complete: function (response, status, xhr) {
+                    if (status == "error") {
+                        alert("Can not run the Ajax Call.");
+                    }
+                    else {
+                        var resp = $.parseJSON(response.responseText);
+                        $('#run').val(resp.TEST_RUN_NO);
+                    }
+                    $("#spinner").hide();
+                }
+            });
+        });
+
+        $('#old_release_list, #old_test_type').change(function () {
+            var rel_name = $('#old_release_list').val()
+            var tst_type = $('#old_test_type').val()
+            var app = $('#app_name').val()
+            var data = {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                release_name: rel_name,
+                test_type: tst_type,
+                app_name: app
+            }
+
+            $.ajax({
+                url: "{% url 'test-report-automation-max-run-old' %}",
+                async: true,
+                data: data,
+                method: 'post',
+                beforeSend: function () {
+                    $("#spinner_old").show();
+                },
+                complete: function (response, status, xhr) {
+                    if (status == "error") {
+                        alert("Can not run the Ajax Call.");
+                    }
+                    else {
+                        var resp = $.parseJSON(response.responseText);
+                        $('#old_run').val(resp.TEST_RUN_NO);
+                    }
+                    $("#spinner_old").hide();
+                }
+            });
+        });
+
+    });
+
+</script>
+
+
+
+
+
+{% endblock content %}

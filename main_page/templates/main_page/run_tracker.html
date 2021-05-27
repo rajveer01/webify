@@ -1,0 +1,156 @@
+{% extends "main_page/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="container my-2">
+            <div class="progress" style="height: 35px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-dark" role="progressbar"
+                    aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <input type="hidden" name="is_refresh" id="is_refresh" value="False">
+    <input type="hidden" name="std_out_file" id="std_out_file" value="{{ std_out_file }}">
+    <input type="hidden" name="std_err_file" id="std_err_file" value="{{ std_err_file }}">
+    <input type="hidden" name="run_log_file" id="run_log_file" value="{{ run_log_file }}">
+    <!-- 
+    <div class="row p-2 m-2">
+        <div class="col-md-4">
+            <div class="form-group ">
+                <label for="std_out_cont" class="text-success">Standard Output</label>
+                <textarea class="form-control  border-success" style="white-space: nowrap;" name="std_out_cont"
+                    id="std_out_cont" rows="15" placeholder="Standard Output will come here."></textarea>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="std_err_cont" class="text-danger">Standard Error</label>
+                <textarea class="form-control border-danger" style="white-space: nowrap;" name="std_err_cont"
+                    id="std_err_cont" rows="15" placeholder="Standard Error will come here."></textarea>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="run_log_cont" class="text-info">Log</label>
+                <textarea class="form-control border-info" style="white-space: nowrap;" name="run_log_cont"
+                    id="run_log_cont" rows="15" placeholder="Logs will come here."></textarea>
+            </div>
+
+        </div>
+
+    </div> -->
+
+    <div class="row m-2">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-success">Standard Output</h4>
+                    <div class="card-text scroll">
+                        <pre id="std_out_cont">
+
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-danger">Standard Error</h4>
+                    <div class="card-text scroll" id="std_err_cont"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-info">Tool Run Logs</h4>
+                    <div class="card-text scroll">
+                        <xmp id="run_log_cont"></xmp>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var std_out_length = 0
+    var std_err_length = 0
+    var run_log_length = 0
+
+    var refresh_loop = setInterval(function () {
+        $(document).ready(function () {
+            var is_refresh = $('#is_refresh').val();
+            var std_out_file = $('#std_out_file').val();
+            var std_err_file = $('#std_err_file').val();
+            var run_log_file = $('#run_log_file').val();
+            var data = {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                is_refresh: 'True',
+                std_out_file: std_out_file,
+                std_err_file: std_err_file,
+                run_log_file: run_log_file,
+                std_out_length: std_out_length,
+                std_err_length: std_err_length,
+                run_log_length: run_log_length
+            };
+            $.ajax({
+                url: "{% url 'main-page-run-tracker' %}",
+                async: true,
+                data: data,
+                method: 'post',
+                beforeSend: function () {
+                    // $("#spinner").show();
+                    console.log('sending')
+
+                },
+                complete: function (response, status, xhr) {
+                    if (status == "error") {
+                        console.log("Can not run the Ajax Call.");
+                    }
+                    else {
+                        var resp = $.parseJSON(response.responseText);
+                        $('#std_out_cont').html($('#std_out_cont').html() + resp.std_out_cont);
+                        $('#std_err_cont').html($('#std_err_cont').html() + resp.std_err_cont);
+                        $('#run_log_cont').html($('#run_log_cont').html() + resp.run_log_cont);
+                        std_out_length = resp.std_out_length
+                        std_err_length = resp.std_err_length
+                        run_log_length = resp.run_log_length
+
+                        if (resp.std_err_cont.includes('Traceback') || resp.run_log_cont.includes('stopping the tool')) {
+                            console.log(resp.std_err_cont);
+                            clearInterval(refresh_loop);
+                        }
+
+                    }
+                }
+            });
+
+        });
+
+    }, 10000);
+
+    $(document).ready(function () {
+        $('#std_err_cont').change(function () {
+            var error = $('#std_err_cont').val();
+            var logs = $('#run_log_cont').val();
+            alert(error)
+            if (error.includes('Traceback') || logs.includes('stopping the tool')) { clearInterval(refresh_loop); }
+        });
+    });
+
+
+
+</script>
+
+
+{% endblock content %}

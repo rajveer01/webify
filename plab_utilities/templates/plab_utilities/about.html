@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Title</title>
+    <script>
+function update_button_text() {
+	buttons = document.getElementsByClassName("directory_buttons");
+	options = document.getElementsByClassName("option_class");
+	var i;
+	for (i = 0; i < buttons.length; i++) {
+		buttons[i].textContent = renamer(buttons[i].value)
+	}
+	for (i = 0; i < options.length; i++) {
+		options[i].textContent = renamer(options[i].value)
+	}
+}
+
+function renamer(k){
+	k_arr = k.split('/')
+	k_arr.reverse()
+	return k_arr[0]
+}
+
+</script>
+</head>
+<body onload="update_button_text()">
+
+<h1>Please Select:</h1>
+
+<form name="file_selector" method="get">
+    {% for option in directory %}
+        <button value="{{ option }}" class='directory_buttons'
+                onclick="document.getElementById('selected_field').value='{{ option }}';"> {{ option }}</button>
+
+    {% endfor %}
+    <br />
+    <br />
+    <select id="selected" size="5" style="height:400px; width:500px;" onchange="">
+<!--        <option> Please Select</option>-->
+        {% for option in options %}
+            <option value="{{option}}" class="option_class" ondblclick="document.getElementById('selected_field').value='{{ option }}';
+            this.form.submit()"> {{option}}</option>
+        {% endfor %}
+    </select>
+    <input type="hidden" name="selected" id="selected_field" value=""/>
+</form>
+
+
+</body>
+</html>

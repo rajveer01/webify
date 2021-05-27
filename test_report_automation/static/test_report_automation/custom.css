@@ -1,0 +1,37 @@
+.customdiv, .side_bar {
+    background-color: silver;
+    /* margin: 10px; */
+    border: slateblue 2px solid;
+    font-size: large;
+    min-height: 50px;
+}
+
+.main_cont {
+    background-color: silver;
+    /* margin: 10px; */
+    border: slateblue 2px solid;
+    font-size: large;
+    min-height: 100px;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+body {
+    padding-top: 66px;
+}
+
+.page-footer {
+    background-color: lightgray;
+}
+
+.not-allowed {
+    cursor: not-allowed;
+}
+
+.scroll {
+    max-height: 400px;
+    overflow-y: auto;
+}

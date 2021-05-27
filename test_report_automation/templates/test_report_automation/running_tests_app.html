@@ -1,0 +1,43 @@
+{% extends 'main_page/base.html' %}
+{% load static  %}
+
+{% block content %}
+
+
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-3">Please Select the App Name</h1>
+        <p class="lead">The App Names are coming from PLAB DB</p>
+        <hr class="my-2">
+        <!-- <p>Please don't Enter a Name That does not exist in app</p> -->
+        <p></p>
+        <p class="lead">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 offset-4">
+                        <form method="post" action="{% url 'main-page-app-parameters' %}" autocomplete="off" onloadstart="" id='app_list_form' class="text-white">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <!-- <label for="app_name">Please Select the App</label> -->
+                                <input type="text" list='app_list' onchange="this.form.submit()" class="form-control" name="app_name" id="app_name"
+                                    aria-describedby="helpId" placeholder="Please select the App Name">
+                                <small id="helpId" class="form-text text-muted">App names are coming from PLAB
+                                    DB</small>
+                            </div>
+                            <datalist id='app_list'>
+                                {% for app in app_list %}
+                                <option> {{ app }} </option>
+                                {% endfor %}
+                            </datalist>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </p>
+    </div>
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,70 @@
+{% extends 'main_page/base.html' %}
+{% load static  %}
+
+{% block content %}
+
+   <div id="root"></div>
+    <script type="text/babel">
+const {
+  colors,
+  CssBaseline,
+  ThemeProvider,
+  Typography,
+  Container,
+  makeStyles,
+  createMuiTheme,
+  Box,
+  SvgIcon,
+  Link,
+  CircularProgress,
+} = MaterialUI;
+
+// Create a theme instance.
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#556cd6',
+    },
+    secondary: {
+      main: '#19857b',
+    },
+    error: {
+      main: colors.red.A400,
+    },
+    background: {
+      default: '#fff',
+    },
+  },
+});
+
+function ProgressGuy(){
+    return(
+    <div>
+        <CircularProgress color="secondary"  size={68} />
+        <span className="display-4" >Generating: {{ app_name }}</span>
+    </div>
+    )
+}
+
+function App() {
+  return (
+    <Container maxWidth="md">
+      <div style={ { marginTop: 24, }}>
+        <ProgressGuy />
+
+      </div>
+    </Container>
+  );
+}
+
+ReactDOM.render(
+  <ThemeProvider theme={theme}>
+    {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+    <CssBaseline />
+    <App />
+  </ThemeProvider>,
+  document.querySelector('#root'),
+);
+    </script>
+
+{% endblock content %}

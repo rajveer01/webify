@@ -1,0 +1,27 @@
+build/
+__pycache__/
+build/report_automation/
+build/rough/
+client_temp/
+config1/
+description.ico
+dist/
+gears.ico
+report_automation.spec
+spfiledb11.ora
+Clients/
+rough.py
+rough2.py
+rough3.py
+rough4.py
+rough5.py
+rough6.py
+rough7.py
+rough_Import.py
+db_refresher/the_tool/param_files/
+db_refresher/the_tool/Run Logs/
+Artifacts/
+test_report_automation/the_tool/bcup
+test_report_automation/the_tool/Artifacts
+*.log
+/test_report_automation/the_tool/obj.bi

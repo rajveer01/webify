@@ -1,0 +1,276 @@
+{% extends "main_page/base.html" %}
+{% load static %}
+{% block content %}
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="remote_browser_modal" tabindex="-1" role="dialog"
+    aria-labelledby="remote_browser_modal_aria_lable" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Browse Folders in <span id="remote_browser_name">Some Value</span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col ">
+
+                            <form name="file_selector" method="get">
+                                <ul class="breadcrumb fixed-top position-sticky">
+                                    <li class="breadcrumb-item">
+                                        <button value="//10.81.1.107" class='directory_buttons btn btn-outline-primary'
+                                            onclick="document.getElementById('selected_field').value='//10.81.1.107';">
+                                            //10.81.1.107</button>
+                                    </li>
+                                </ul>
+                                <div class="form-group">
+                                    <div class="spinner-border text-info collapse"></div>
+                                    <label for="folder_selector">Select Folder</label>
+                                    <select class="custom-select" name="folder_selector" id="folder_selector" size="6">
+                                        <option value="//10.81.1.107/D$/Feb Release 2020/Execution Project/Artifacts"
+                                            class="option_class py-2" ondblclick="document.getElementById('selected_field').value='//10.81.1.107/D$/Feb Release 2020/Execution Project/Artifacts';
+                                this.form.submit()"><span class="glyphicon glyphicon-file "></span>Artifacts
+                                        </option>
+
+                                        <option value="//10.81.1.107/D$/Feb Release 2020/Execution Project/IAD_Feb_2020"
+                                            class="option_class py-2" ondblclick="document.getElementById('selected_field').value='//10.81.1.107/D$/Feb Release 2020/Execution Project/IAD_Feb_2020';
+                                this.form.submit()"> <span class="glyphicon glyphicon-file "></span>IAD_Feb_2020
+                                        </option>
+
+                                        <option value="//10.81.1.107/D$/Feb Release 2020/Execution Project/OP"
+                                            class="option_class py-2" ondblclick="document.getElementById('selected_field').value='//10.81.1.107/D$/Feb Release 2020/Execution Project/OP';
+                                this.form.submit()"> <span class="glyphicon glyphicon-file "></span>OP</option>
+
+                                        <option value="//10.81.1.107/D$/Feb Release 2020/Execution Project/Tools"
+                                            class="option_class py-2" ondblclick="document.getElementById('selected_field').value='//10.81.1.107/D$/Feb Release 2020/Execution Project/Tools';
+                                this.form.submit()"> <span class="glyphicon glyphicon-file "></span>Tools</option>
+
+                                    </select>
+                                </div>
+                                <input type="hidden" name="selected" id="selected_field" value="" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Select Selected</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-md-3 bg-dark flex-column ">
+            <nav class="nav py-5 navbar-dark justify-content-center nav-pills position-fixed flex-column">
+                <a href="#parameters" class="nav-link active text-white py-2 my-2" style="width:100%"
+                    data-toggle="tab">Server DB Parameters &nbsp; &nbsp;&nbsp;
+                </a>
+                <a href="#other_settings" class="nav-link text-white my-1" data-toggle="tab"> Other Configurations</a>
+            </nav>
+            <div style="height: 100vh;"></div>
+
+        </div>
+        <div class="col-md-8 py-4">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center display-4">DB Refresher Tool: Import </h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 offset-1 py-4 ">
+                <form method="POST" id="parameters_form" autocomplete="on">
+                    {% csrf_token %}
+
+                    <div class="tab-content py-4 ">
+                        <div class="tab-pane active" id="parameters">
+
+                            <div class="form-group">
+                                <label for="db_hostname">DB Hostname</label>
+                                <input type="text" class="form-control" name="db_hostname" id="db_hostname"
+                                    aria-describedby="helpId_db_hostname" placeholder="Enter DB Server IP">
+                                <small id="helpId_db_hostname" class="form-text text-muted">Please enter the DB Hostname
+                                    where to import</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="current_schema_name">Current Schema Name</label>
+                                <input type="text" class="form-control" name="current_schema_name"
+                                    id="current_schema_name" aria-describedby="helpId_current_schema_Name"
+                                    placeholder="Enter Current Schema Name">
+                                <small id="helpId_current_schema_Name" class="form-text text-muted">Enter the Schema
+                                    That is to be Dropped</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="new_schema_name">New Schema Name</label>
+                                <input type="text" class="form-control" name="new_schema_name" id="new_schema_name"
+                                    aria-describedby="helpId_new_schema_name" placeholder="Enter the New Schema Name">
+                                <small id="helpId_new_schema_name" class="form-text text-muted">Please Enter new Schema
+                                    name to be imported as</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="table_space_location">Tablespace Location</label>
+                                <input type="text" class="form-control" name="table_space_location"
+                                    id="table_space_location" aria-describedby="helpId_table_space_location"
+                                    placeholder="Enter Tablespace Location">
+                                <small id="helpId_table_space_location" class="form-text text-muted">Enter the New table
+                                    space and IDX location</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dump_file_name">Dump File Name</label>
+                                <input type="text" class="form-control" name="dump_file_name" id="dump_file_name"
+                                    aria-describedby="helpId_dump_file_name" placeholder="Enter the dumpfile nameeeee">
+                                <small id="helpId_dump_file_name" class="form-text text-muted">Enter the db dump file
+                                    name</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dump_file_directory">Dump directory Name</label>
+                                <input type="text" class="form-control" name="dump_file_directory"
+                                    id="dump_file_directory" aria-describedby="helpId_dump_file_directory"
+                                    placeholder="Enter dump Directory name">
+                                <small id="helpId_dump_file_directory" class="form-text text-muted">Enter the DB
+                                    directory name for Dump file name</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dump_schema_name">Import Dump Schema Name</label>
+                                <input type="text" class="form-control" name="dump_schema_name" id="dump_schema_name"
+                                    aria-describedby="helpId_dump_schema_name" placeholder="Enter Dump schama name">
+                                <small id="helpId_dump_schema_name" class="form-text text-muted">Enter the schema name
+                                    in the DB Dump</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="REMAP_TABLESPACE_DATA">Imprt Tablespace Name</label>
+                                <input type="text" class="form-control" name="REMAP_TABLESPACE_DATA"
+                                    id="REMAP_TABLESPACE_DATA" aria-describedby="helpId_REMAP_TABLESPACE_DATA"
+                                    placeholder="Enter import tablespace Data file name">
+                                <small id="helpId_REMAP_TABLESPACE_DATA" class="form-text text-muted">Enter the Import
+                                    tablespace data file name</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="REMAP_TABLESPACE_IDX">Import Table IDX Name</label>
+                                <input type="text" class="form-control" name="REMAP_TABLESPACE_IDX"
+                                    id="REMAP_TABLESPACE_IDX" aria-describedby="helpId_REMAP_TABLESPACE_IDX"
+                                    placeholder="Import Tablespace IDX File Name">
+                                <small id="helpId_REMAP_TABLESPACE_IDX" class="form-text text-muted">Import Tablespace
+                                    IDX File Name</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="emails">Email to:</label>
+                                <textarea class="form-control" name="emails" id="emails" rows="3"
+                                    placeholder="Enter your Email"></textarea>
+                            </div>
+
+
+                        </div>
+
+                        <div class="tab-pane " id="other_settings">
+                            <div class="form-group">
+                                <label for="sid">SID</label>
+                                <input type="text" class="form-control" name="sid" id="sid" placeholder="SID"
+                                    value="db11">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="db_port">DB Port</label>
+                                <input type="text" class="form-control" name="db_port" id="db_port"
+                                    placeholder="db_port" value="1521">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="user">SSH User Name</label>
+                                <input type="text" class="form-control" name="user" id="user" placeholder="user"
+                                    value="oracle">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pwd">SSH Password</label>
+                                <input type="text" class="form-control" name="pwd" id="pwd" placeholder="pwd"
+                                    value="oracle">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="db_ssh_Port">Db SSH Port</label>
+                                <input type="text" class="form-control" name="db_ssh_Port" id="db_ssh_Port"
+                                    placeholder="db_ssh_Port" value="22">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="SystemUserPassword">System User Password</label>
+                                <input type="text" class="form-control" name="SystemUserPassword"
+                                    id="SystemUserPassword" placeholder="SystemUserPassword" value="Welcome1">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="No_Of_DataFiles">No Of Data Files</label>
+                                <input type="text" class="form-control" name="No_Of_DataFiles" id="No_Of_DataFiles"
+                                    placeholder="No_Of_DataFiles" value="10">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="No_Of_IndexFiles">No Of Index Files</label>
+                                <input type="text" class="form-control" name="No_Of_IndexFiles" id="No_Of_IndexFiles"
+                                    placeholder="No_Of_IndexFiles" value="3">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="enterprise_name">Enterprise Name</label>
+                                <input type="text" class="form-control" name="enterprise_name" id="enterprise_name"
+                                    placeholder="enterprise_name" value="MetricStream">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="result_database_name">Result Database Name</label>
+                                <input type="text" class="form-control" name="result_database_name"
+                                    id="result_database_name" placeholder="result_database_name"
+                                    value="jdbc/oracle/msi">
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row fixed-bottom ">
+            <div class="col-md-6 offset-3 text-center">
+                <div class="col-md-6 offset-3 py-2 rounded-pill text-center bg-white">
+                    <button type="submit" onclick='document.getElementById("parameters_form").submit();'
+                        class="btn  btn-outline-dark ">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+{% endblock content %}

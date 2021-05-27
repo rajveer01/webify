@@ -1,0 +1,105 @@
+{% extends "main_page/base.html" %}
+{% load static %}
+{% block content %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">The PLab Tools</h1>
+        <p class="lead">One stop to get things at done at !your own pace:)</p>
+        <hr class="my-2">
+        <p class="text-muted"> Often automation is done to reduced the human's labour pain, pun intented &#x1F609;
+        </p>
+        <p class="text-muted"> This utility belt have all the gadjets that will allow you to do your (or someone
+            else's) work, efficiently .</p>
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Request credentials now.</a>
+        </p>
+    </div>
+</div>
+
+<h2 class="display-2 text-center py-4 my-3"> The Tools</h2>
+
+<div class="container text-muted">
+    <div class="row">
+        <div class="col-md-6 col-lg-3 py-4" style="display: inline-flex;" onclick="window.location.href='{% url 'nl-project-manager-home' %}'">
+            <div class="card text-left">
+                <img class="card-img-top img-fluid" src="{% static 'test_report_automation/resc/NLProject.png' %} "
+                    alt="">
+                <div class="card-body">
+                    <h4 class="card-title">NL Project Manager</h4>
+                    <p class="card-text">Use this tool to configure NL Porject to a certain extent.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 py-4" style="display: inline-flex;">
+            <div class="card text-left">
+                <img class="card-img-top img-fluid" src="{% static 'test_report_automation/resc/Config_check.png' %}"
+                    alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Config Check Tool</h4>
+                    <p class="card-text">Use this tool to start the Neoload Test, without worrying about the few
+                        thing of many.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 py-4"  style="display: inline-flex;" onclick="window.location.href='{% url 'nl-test-starter-home' %}'">
+            <div class="card text-left">
+                <img class="card-img-top img-fluid" src="{% static 'test_report_automation/resc/executioner.png' %}"
+                    alt="">
+                <div class="card-body">
+                    <h4 class="card-title">The Executioner</h4>
+                    <p class="card-text">Use this tool to start the Neoload Test, without worrying about the few
+                        thing of many.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 py-4"  style="display: inline-flex;" onclick="window.location.href='{% url 'test-report-automation-home' %}'">
+            <div class="card text-left">
+                <img class="card-img-top img-fluid"
+                    src="{% static 'test_report_automation/resc/Reprot_automation.png' %}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Test Reporter</h4>
+                    <p class="card-text">Use this tool to start the Neoload Test, without worrying about the few
+                        thing of many.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 py-4" style="display: inline-flex;" onclick="window.location.href='{% url 'db-refresher-home' %}'">
+            <div class="card text-left">
+                <img class="card-img-top img-fluid" src="{% static 'test_report_automation/resc/db_refresher.png' %}"
+                    alt="">
+                <div class="card-body">
+                    <h4 class="card-title">DB Refresher</h4>
+                    <p class="card-text">Use this tool to start the Neoload Test, without worrying about the few
+                        thing of many.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 py-4" style="display: inline-flex;">
+            <div class="card text-left">
+                <img class="card-img-top img-fluid" src="{% static 'test_report_automation/resc/db_monitoring.png' %}"
+                    alt="">
+                <div class="card-body">
+                    <h4 class="card-title">DB Monitoring Tool</h4>
+                    <p class="card-text">Use this tool to start the Neoload Test, without worrying about the few
+                        thing of many.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3 py-4" style="display: inline-flex;">
+            <div class="card text-left">
+                <img class="card-img-top img-fluid" src="{% static 'test_report_automation/resc/executioner.png' %}"
+                    alt="">
+                <div class="card-body">
+                    <h4 class="card-title">The Executioner</h4>
+                    <ol>
+                        <li>Job 1</li>
+                        <li>Job 2</li>
+                        <li>Job 3</li>
+                        <li>Job 4</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

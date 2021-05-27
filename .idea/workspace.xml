@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="01d4382c-006f-47a9-91b5-53b3a99b52c6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/sla_sheet_generator/static/sla_sheet_generator/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sla_sheet_generator/templates/sla_sheet_generator/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sla_sheet_generator/templates/sla_sheet_generator/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sla_sheet_generator/templates/sla_sheet_generator/download_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sla_sheet_generator/templates/sla_sheet_generator/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sla_sheet_generator/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_report_automation/the_tool/directory_downloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/rajveer_singh.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/rajveer_singh.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db_refresher/the_tool/db_refresher.py" beforeDir="false" afterPath="$PROJECT_DIR$/db_refresher/the_tool/db_refresher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_page/templates/main_page/app_parameters.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/templates/main_page/app_parameters.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_page/templates/main_page/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/templates/main_page/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_page/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_page/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl_project_manager/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/nl_project_manager/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_report_automation/the_tool/copy_logs.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_report_automation/the_tool/copy_logs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_report_automation/the_tool/gps.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_report_automation/the_tool/gps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webify/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/webify/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webify/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/webify/urls.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1dfNseJ4p3I1AzQ0v1fE8JVzgrg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/sla_sheet_generator" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="webify" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="webify" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\rajveer.singh\PycharmProjects\Web Server\webify\webify\sla_sheet_generator" />
+      <recent name="C:\Users\rajveer.singh\PycharmProjects\Web Server\webify\nl_test_starter" />
+      <recent name="C:\Users\rajveer.singh\PycharmProjects\Web Server\webify\apis" />
+      <recent name="C:\Users\rajveer.singh\PycharmProjects\Web Server\webify\nl_project_manager" />
+      <recent name="C:\Users\rajveer.singh\PycharmProjects\Web Server\webify" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rajveer.singh\PycharmProjects\Web Server\webify\test_report_automation\the_tool\bcup" />
+      <recent name="C:\Users\rajveer.singh\PycharmProjects\Web Server\webify\test_report_automation\the_tool" />
+      <recent name="C:\Users\rajveer.singh\PycharmProjects\Web Server\webify\test_report_automation" />
+      <recent name="C:\Users\rajveer.singh\PycharmProjects\Web Server\webify\test_report_automation\the_tool\Artifacts\Feb Release 2020\REM" />
+      <recent name="C:\Users\rajveer.singh\PycharmProjects\Web Server\webify\db_refresher\the_tool" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.directory_downloader">
+    <configuration name="directory_downloader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="webify" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_report_automation/the_tool" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_report_automation/the_tool/directory_downloader.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="new_table_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="webify" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_report_automation/the_tool" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_report_automation/the_tool/new_table_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="reproduce_db_issue" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="webify" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../.." />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../reproduce_db_issue.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="rough" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="webify" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_report_automation/the_tool" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_report_automation/the_tool/rough.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="rough2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="webify" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_report_automation/the_tool" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_report_automation/the_tool/rough2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.new_table_data" />
+      <item itemvalue="Python.reproduce_db_issue" />
+      <item itemvalue="Python.rough2" />
+      <item itemvalue="Python.rough" />
+      <item itemvalue="Python.directory_downloader" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.directory_downloader" />
+        <item itemvalue="Python.rough" />
+        <item itemvalue="Python.rough2" />
+        <item itemvalue="Python.reproduce_db_issue" />
+        <item itemvalue="Python.new_table_data" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="01d4382c-006f-47a9-91b5-53b3a99b52c6" name="Default Changelist" comment="" />
+      <created>1576949775800</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1576949775800</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Adding Files">
+      <created>1578907748123</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1578907748123</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Adding Files">
+      <created>1579582298540</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579582298540</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Adding Files">
+      <created>1579602908598</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1579602908598</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Updating Code&#10;1. Starting where it was left">
+      <created>1591517833883</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1591517833883</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Updating Code&#10;1. Updating the Parameters to show logs in UI">
+      <created>1594566246482</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1594566246482</updated>
+    </task>
+    <task id="LOCAL-00006" summary="v1.2 Coming &#10;1. updated Codee for New Table">
+      <created>1595833534615</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1595833534616</updated>
+    </task>
+    <task id="LOCAL-00007" summary="v1.2 Coming &#10;1. Correction in Utilisation table Precent">
+      <created>1603773012755</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603773012755</updated>
+    </task>
+    <task id="LOCAL-00008" summary="v1.2 Coming &#10;1. Correction in Utilisation table Precent">
+      <created>1603774024257</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1603774024257</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding Files" />
+    <MESSAGE value="Updating Code&#10;1. Starting where it was left" />
+    <MESSAGE value="Updating Code&#10;1. Updating the Parameters to show logs in UI" />
+    <MESSAGE value="v1.2 Coming &#10;1. updated Codee for New Table" />
+    <MESSAGE value="v1.2 Coming &#10;1. Correction in Utilisation table Precent" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.2 Coming &#10;1. Correction in Utilisation table Precent" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1345" height="163" key="GridCell.Tab.0.bottom" timestamp="1621873013778">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="163" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1621873013778" />
+    <state width="1345" height="163" key="GridCell.Tab.0.center" timestamp="1621873013778">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="163" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1621873013778" />
+    <state width="1345" height="163" key="GridCell.Tab.0.left" timestamp="1621873013778">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="163" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1621873013778" />
+    <state width="1345" height="163" key="GridCell.Tab.0.right" timestamp="1621873013778">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1345" height="163" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1621873013778" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_report_automation/the_tool/index_file_in_latest_folder.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" log-message="true" suspend="NONE" type="python-line">
+          <url>file://$PROJECT_DIR$/test_report_automation/the_tool/gps.py</url>
+          <line>91</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_report_automation/the_tool/rough.py</url>
+          <line>231</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/nl_test_starter/the_tool/workflow.py</url>
+          <line>178</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/nl_project_manager/the_tool/workflow.py</url>
+          <line>443</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test_report_automation/the_tool/rough.py</url>
+          <line>2</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
